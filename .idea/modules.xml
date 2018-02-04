@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/yanyi-dictionary.iml" filepath="$PROJECT_DIR$/yanyi-dictionary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yanyi-dictionary-common/yanyi-dictionary-common.iml" filepath="$PROJECT_DIR$/yanyi-dictionary-common/yanyi-dictionary-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yanyi-dictionary-controller/yanyi-dictionary-controller.iml" filepath="$PROJECT_DIR$/yanyi-dictionary-controller/yanyi-dictionary-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yanyi-dictionary-core/yanyi-dictionary-core.iml" filepath="$PROJECT_DIR$/yanyi-dictionary-core/yanyi-dictionary-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yanyi-dictionary-dao/yanyi-dictionary-dao.iml" filepath="$PROJECT_DIR$/yanyi-dictionary-dao/yanyi-dictionary-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yanyi-dictionary-rpc/yanyi-dictionary-rpc.iml" filepath="$PROJECT_DIR$/yanyi-dictionary-rpc/yanyi-dictionary-rpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yanyi-dictionary-service/yanyi-dictionary-service.iml" filepath="$PROJECT_DIR$/yanyi-dictionary-service/yanyi-dictionary-service.iml" />
+    </modules>
+  </component>
+</project>

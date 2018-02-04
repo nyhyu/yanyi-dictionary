@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yanyi-dictionary-common" />
+        <module name="yanyi-dictionary-controller" />
+        <module name="yanyi-dictionary-core" />
+        <module name="yanyi-dictionary-dao" />
+        <module name="yanyi-dictionary-rpc" />
+        <module name="yanyi-dictionary-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="yanyi-dictionary" target="1.5" />
+      <module name="yanyi-dictionary-common" target="1.5" />
+      <module name="yanyi-dictionary-controller" target="1.5" />
+      <module name="yanyi-dictionary-core" target="1.5" />
+      <module name="yanyi-dictionary-dao" target="1.5" />
+      <module name="yanyi-dictionary-rpc" target="1.5" />
+      <module name="yanyi-dictionary-service" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
