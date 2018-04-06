@@ -1,22 +1,12 @@
-package com.yanyi.common.model;
+package com.yanyi.request;
 
-public class RussianWord {
-
-    private int id;
+public class RussianWordRequest {
 
     private String russianPrototype;
 
     private String changeType;
 
     private String flag;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getRussianPrototype() {
         return russianPrototype;
@@ -41,5 +31,4 @@ public class RussianWord {
     public void setFlag(String flag) {
         this.flag = flag;
     }
-
 }

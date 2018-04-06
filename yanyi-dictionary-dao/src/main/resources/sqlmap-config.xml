@@ -12,10 +12,4 @@
     </settings>
 
     <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径 -->
-
-    <plugins>
-        <plugin interceptor="com.jd.logbook.configcenter.mybatis.interceptor.PageStatementInterceptor"/>
-        <plugin interceptor="com.jd.logbook.configcenter.mybatis.interceptor.PageResultInterceptor"/>
-    </plugins>
-
 </configuration>

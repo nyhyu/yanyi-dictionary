@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URLDecoder;
 
-public class HttpRequestUtils {
-    private static Logger logger = LoggerFactory.getLogger(HttpRequestUtils.class);
+public class HttpRequestUtil {
+    private static Logger LOGGER = LoggerFactory.getLogger(HttpRequestUtil.class);
 
     /**
      * post请求
@@ -44,11 +44,11 @@ public class HttpRequestUtils {
                     /**读取服务器返回过来的json字符串数据**/
                     res = EntityUtils.toString(result.getEntity());
                 } catch (Exception e) {
-                    logger.error("post请求提交失败:" + url, e);
+                    LOGGER.error("post请求提交失败:" + url, e);
                 }
             }
         } catch (IOException e) {
-            logger.error("post请求提交失败:" + url, e);
+            LOGGER.error("post请求提交失败:" + url, e);
         }
         return res;
     }
@@ -74,10 +74,10 @@ public class HttpRequestUtils {
                 res = EntityUtils.toString(response.getEntity());
                 url = URLDecoder.decode(url, "UTF-8");
             } else {
-                logger.error("get请求提交失败:" + url);
+                LOGGER.error("get请求提交失败:" + url);
             }
         } catch (IOException e) {
-            logger.error("get请求提交失败:" + url, e);
+            LOGGER.error("get请求提交失败:" + url, e);
         }
         return res;
     }

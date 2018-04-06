@@ -48,7 +48,7 @@
 
     <!-- 自动扫描接口文件 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.jd.logbook.configcenter.dao"/>
+        <property name="basePackage" value="com.yanyi.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
     </bean>
 

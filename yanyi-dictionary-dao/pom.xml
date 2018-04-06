@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.yanyi.dictionary</groupId>
+            <artifactId>yanyi-dictionary-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>

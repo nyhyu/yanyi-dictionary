@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanyi.dao.UserInfoDAO">
+
+    <resultMap id="UserInfoMap" type="com.yanyi.common.model.UserInfo">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="nick_name" property="nickName" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="VARCHAR"/>
+        <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="country" property="country" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--columns config-->
+    <sql id="allColumn">
+        id, nick_name, gender, avatar_url, city, province, country, create_time, update_time
+    </sql>
+    <!-- query conditions -->
+    <sql id="sqlCondition">
+        <if test="null != id and id != ''">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="null != nickName and nickName != ''">
+            and nick_name = #{nickName,jdbcType=VARCHAR}
+        </if>
+        <if test="null != gender">
+            and gender = #{gender,jdbcType=VARCHAR}
+        </if>
+        <if test="null != avatarUrl and avatarUrl != ''">
+            and avatar_url = #{avatarUrl,jdbcType=VARCHAR}
+        </if>
+        <if test="null != city and city != ''">
+            and city = #{city,jdbcType=VARCHAR}
+        </if>
+        <if test="null != province and province != ''">
+            and province = #{province,jdbcType=VARCHAR}
+        </if>
+        <if test="null != country and country != ''">
+            and country = #{country,jdbcType=VARCHAR}
+        </if>
+        <if test="null != createTime and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="null != updateTime and updateTime != ''">
+            and update_time = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+    </sql>
+
+    <!-- insert sql -->
+    <insert id="insertUserInfo" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.yanyi.common.model.UserInfo">
+        insert into
+          users(nick_name, gender, avatar_url, city, province, country, create_time, update_time)
+        values
+          (#{nickName,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
+          #{province,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, now(), now())
+    </insert>
+
+</mapper>
