@@ -1,0 +1,12 @@
+.idea/
+target
+/out
+/*.bin
+/pkg
+/bin
+*.log
+.worksheet
+*.iml
+VERSION.txt
+binary
+
