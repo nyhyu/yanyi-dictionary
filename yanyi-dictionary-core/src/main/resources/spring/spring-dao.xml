@@ -25,9 +25,9 @@
         <property name="timeBetweenEvictionRunsMillis" value="30000"/>
         <property name="numTestsPerEvictionRun" value="20"/>
         <property name="minEvictableIdleTimeMillis" value="1800000"/>
-        <property name="url" value="${jdbc.master.url}"/>
-        <property name="username" value="${jdbc.master.username}"/>
-        <property name="password" value="${jdbc.master.password}"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/yanyi?characterEncoding=utf-8"/>
+        <property name="username" value="yanyi"/>
+        <property name="password" value="Yan@Yi#2108"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
