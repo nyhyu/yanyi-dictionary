@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-readonly LOGBOOK_CONFIG_CNETER_DIR="/export/servers/logbook-config-center"
+readonly YANYI_DICTIONARY_DIR="/export/servers/yanyi-dictionary"
 
-$LOGBOOK_CONFIG_CNETER_DIR/bin/stop.sh
-$LOGBOOK_CONFIG_CNETER_DIR/bin/start.sh
+$YANYI_DICTIONARY_DIR/bin/stop.sh
+$YANYI_DICTIONARY_DIR/bin/start.sh

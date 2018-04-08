@@ -59,12 +59,15 @@ public class RussianWordSeviceImpl implements RussianWordSevice {
 
         try {
             String cssFile = searchRussianWord.getRussianWordCss();
+            LOGGER.info("cssFile = " + cssFile);
             CSSUtil cssUtil = new CSSUtil(new ByteArrayInputStream(cssFile.getBytes()));
             String htmlText= searchRussianWord.getRussianWordInfoFromFLTRP(russianWord.getRussianPrototype());
+            LOGGER.info("originalText = " + htmlText);
             for(String className: Constants.CLASS_NAMES) {
                 String style = cssUtil.getClass(className);
                 htmlText.replaceAll("class=\"" + className + "\"", "style=\"" + style + "\"");
             }
+            LOGGER.info("AfterText = " + htmlText);
             return htmlText;
         } catch (RuntimeException e) {
             LOGGER.error("Get russian word info failed, error is ", e);
