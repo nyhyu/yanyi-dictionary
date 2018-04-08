@@ -57,7 +57,7 @@ fi
 
 echo "Yanyi dictionary is starting"
 
-java $JAVA_OPTS -Dapp.name="Yanyi dictionary " $MAIN_CLASS &
+java $JAVA_OPTS -Dapp.name="Yanyi dictionary" $MAIN_CLASS & >> $BASE_LOG_DIR/yanyi-dictionary.log
 
 reg_auto_start
 
@@ -66,6 +66,6 @@ sleep 0.5
 pid=`jps -l | grep $MAIN_CLASS | awk '{print $1}'`
 
 if [[ $pid == "" ]];then
-    echo "Yanyi dictionary  not starte, please check" >> "${BASE_LOG_DIR}/console.log" 2>&1
+    echo "Yanyi dictionary  not start, please check" >> "${BASE_LOG_DIR}/console.log" 2>&1
     exit 1
 fi
