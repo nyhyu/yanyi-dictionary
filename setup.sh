@@ -28,6 +28,7 @@ function show_messages()
 
 function main()
 {
+    mv $PROGRAM_DIR/conf/spring/application.xml.prod $PROGRAM_DIR/conf/spring/application.xml
     make_directories
     unarchive_tarball
     show_messages
