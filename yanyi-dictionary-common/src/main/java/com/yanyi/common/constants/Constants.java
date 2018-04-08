@@ -8,7 +8,7 @@ public class Constants {
 
     public final static String[] NO_ACCENTS = { "а", "о", "у", "и", "е", "э", "ы", "я", "ю" };
 
-    public final static String[] HAS_ACCENTS = { "а́ ", "о́ ", "у́ ", "и́ ", "е́ ", "э́ ", "ы́ ", "я́ ", "ю́ " };
+    public final static String[] HAS_ACCENTS = { "а́", "о́", "у́", "и́", "е́", "э́", "ы́", "я́", "ю́" };
 
     public final static String CSS_URL = "http://111.200.194.183:8080/dict/css/style.css";
 
@@ -18,4 +18,5 @@ public class Constants {
                         "Category", "Example", "Ex", "Trans", "Italic", "See", "Same", "SenseId", "Self", "SingularGenetiv",
                         "SeinHaben", "Idiom", "ImageZaoZi", "Menu", "para", "boxtitle", "boxtr", "boxtd", "SupSenseId",
                         "usage", "Uage" };
+
 }

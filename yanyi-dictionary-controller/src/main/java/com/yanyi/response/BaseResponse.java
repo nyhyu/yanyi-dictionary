@@ -5,16 +5,17 @@ package com.yanyi.response;
  */
 public class BaseResponse {
     public enum ResponseCode {
-        OK(200),
-        ClientErr(400),
-        ServerErr(500);
+        OK("SUCCESS", 200),
+        ClientErr("CLIENT ERROR", 400),
+        ServerErr("SERVER ERROR", 500);
 
         private Integer code;
 
         private String message;
 
-        ResponseCode(Integer code) {
+        ResponseCode(String message, Integer code) {
             this.code = code;
+            this.message = message;
         }
 
         public Integer getCode() {
@@ -34,19 +35,9 @@ public class BaseResponse {
         }
     }
 
-    protected ResponseCode responseCode;
-
     protected String message;
 
     protected int code;
-
-    public ResponseCode getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(ResponseCode responseCode) {
-        this.responseCode = responseCode;
-    }
 
     public String getMessage() {
         return message;

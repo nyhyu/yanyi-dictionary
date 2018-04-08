@@ -9,12 +9,10 @@ import com.yanyi.response.RussianWordResponse;
 import com.yanyi.service.RussianWordSevice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class RussianWordController {
 
     @ResponseBody
     @RequestMapping(value = "/prototype_list", method = RequestMethod.POST)
-    public RussianWordResponse getRussianWordList(RussianWordRequest russianWordRequest) {
+    public RussianWordResponse getRussianWordList(@Valid @RequestBody RussianWordRequest russianWordRequest) {
         LOGGER.info("Get russian prototype list：params are {}", JSON.toJSONString(russianWordRequest));
         RussianWordResponse response = new RussianWordResponse();
         try {
@@ -51,7 +49,7 @@ public class RussianWordController {
 
     @ResponseBody
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public RussianWordResponse getRussianWordInfo(RussianWordRequest russianWordRequest) {
+    public RussianWordResponse getRussianWordInfo(@Valid @RequestBody RussianWordRequest russianWordRequest) {
         LOGGER.info("Get russian word info：params are {}", JSON.toJSONString(russianWordRequest));
         RussianWordResponse response = new RussianWordResponse();
         try {

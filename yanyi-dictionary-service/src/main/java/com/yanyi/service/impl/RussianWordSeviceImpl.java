@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,9 +27,29 @@ public class RussianWordSeviceImpl implements RussianWordSevice {
     @Override
     public List<RussianWord> getRussianWordList(RussianWord russianWord) {
         try {
-            List<RussianWord> russianWordList = russianWordDAO.getRussianWordList(russianWord);
+            boolean hasAccent = false;
+            List<RussianWord> russianWordList = new ArrayList<>();
+            for(String accent : Constants.HAS_ACCENTS) {
+                if (russianWord.getRussianPrototype().contains(accent)) {
+                    hasAccent = true;
+                    break;
+                }
+            }
+            if(!hasAccent) {
+                for (int i = 0; i <  Constants.NO_ACCENTS.length; i++) {
+                    if (russianWord.getRussianPrototype().contains(Constants.NO_ACCENTS[i])) {
+                        StringBuilder stringBuilder = new StringBuilder(russianWord.getRussianPrototype());
+                        stringBuilder.replace(i, i + 1, Constants.HAS_ACCENTS[i]);
+                        russianWordList.addAll(russianWordDAO.getRussianWordList(new RussianWord(stringBuilder.toString())));
+                    }
+                }
+            } else {
+                russianWordList.addAll(russianWordDAO.getRussianWordList(russianWord));
+            }
+
             return russianWordList;
         } catch (RuntimeException e) {
+            LOGGER.error("Get russian word list failed, error is ", e);
             throw new RuntimeException(e);
         }
     }
@@ -46,6 +67,7 @@ public class RussianWordSeviceImpl implements RussianWordSevice {
             }
             return htmlText;
         } catch (RuntimeException e) {
+            LOGGER.error("Get russian word info failed, error is ", e);
             throw new RuntimeException(e);
         }
     }

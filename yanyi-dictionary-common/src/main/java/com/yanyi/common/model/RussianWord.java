@@ -42,4 +42,10 @@ public class RussianWord {
         this.flag = flag;
     }
 
+    public RussianWord() {
+    }
+
+    public RussianWord(String russianPrototype) {
+        this.russianPrototype = russianPrototype;
+    }
 }

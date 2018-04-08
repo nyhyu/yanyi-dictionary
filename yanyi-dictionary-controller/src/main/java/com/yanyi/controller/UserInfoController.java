@@ -9,12 +9,10 @@ import com.yanyi.service.UserInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -29,7 +27,7 @@ public class UserInfoController {
 
     @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public BaseResponse resgisterUserInfo(UserInfoRequest userInfoRequest) {
+    public BaseResponse resgisterUserInfo(@Valid @RequestBody UserInfoRequest userInfoRequest) {
         LOGGER.info("Register user info：params are {}", JSON.toJSONString(userInfoRequest));
         BaseResponse response = new BaseResponse();
         if(StringUtils.isEmpty(userInfoRequest.getNickName()) || StringUtils.isEmpty(userInfoRequest.getAvatarUrl())

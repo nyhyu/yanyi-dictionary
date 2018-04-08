@@ -2,18 +2,19 @@ package com.yanyi.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 
-/**
- * Created by xiaoxiao20 on 27/02/2017.
- */
-
 @SpringBootApplication
-public class Application {
+public class Application implements EmbeddedServletContainerCustomizer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+
+    @Value("${springboot.server.port}")
+    private Integer port;
 
 
     public static void main(String [] args) {
@@ -28,6 +29,13 @@ public class Application {
         } catch (Exception e) {
             LOGGER.error("Startup spring application failed", e);
             System.exit(1);
+        }
+    }
+
+    @Override
+    public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
+        if (port != null) {
+            configurableEmbeddedServletContainer.setPort(port);
         }
     }
 }

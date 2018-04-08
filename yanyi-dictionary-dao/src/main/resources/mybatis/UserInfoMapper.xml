@@ -53,11 +53,13 @@
     <!-- insert sql -->
     <insert id="insertUserInfo" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.yanyi.common.model.UserInfo">
-        insert into
+        INSERT INTO
           users(nick_name, gender, avatar_url, city, province, country, create_time, update_time)
-        values
+        VALUES
           (#{nickName,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
           #{province,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, now(), now())
+        ON DUPLICATE KEY UPDATE
+          update_time=VALUES(update_time)
     </insert>
 
 </mapper>
