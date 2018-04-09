@@ -48,7 +48,7 @@ public class RussianWordController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @RequestMapping(value = "/info", method = RequestMethod.POST)
     public RussianWordResponse getRussianWordInfo(@Valid @RequestBody RussianWordRequest russianWordRequest) {
         LOGGER.info("Get russian word info：params are {}", JSON.toJSONString(russianWordRequest));
         RussianWordResponse response = new RussianWordResponse();

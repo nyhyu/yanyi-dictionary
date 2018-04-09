@@ -69,7 +69,7 @@ public class RussianWordSeviceImpl implements RussianWordSevice {
             LOGGER.info("originalText = " + htmlText);
             for(String className: Constants.CLASS_NAMES) {
                 String style = cssUtil.getClass(className);
-                htmlText.replaceAll("class=\"" + className + "\"", "style=\"" + style + "\"");
+                htmlText = htmlText.replaceAll("class=\"" + className + "\"", "style=\"" + style + "\"");
             }
             LOGGER.info("AfterText = " + htmlText);
             return htmlText;
