@@ -1,5 +1,6 @@
 package com.yanyi.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.yanyi.common.constants.Constants;
 import com.yanyi.common.model.RussianWord;
 import com.yanyi.common.utils.CSSUtil;
@@ -35,11 +36,13 @@ public class RussianWordSeviceImpl implements RussianWordSevice {
                     break;
                 }
             }
+            LOGGER.info("hasAccent" + hasAccent + ", *** russianWord" + JSON.toJSONString(russianWord));
             if(!hasAccent) {
-                for (int i = 0; i <  Constants.NO_ACCENTS.length; i++) {
+                for (int i=0; i < Constants.NO_ACCENTS.length; i++) {
                     if (russianWord.getRussianPrototype().contains(Constants.NO_ACCENTS[i])) {
+                        int idx = russianWord.getRussianPrototype().indexOf(Constants.NO_ACCENTS[i]);
                         StringBuilder stringBuilder = new StringBuilder(russianWord.getRussianPrototype());
-                        stringBuilder.replace(i, i + 1, Constants.HAS_ACCENTS[i]);
+                        stringBuilder.replace(idx, idx + 1, Constants.HAS_ACCENTS[i]);
                         russianWordList.addAll(russianWordDAO.getRussianWordList(new RussianWord(stringBuilder.toString())));
                     }
                 }
@@ -47,6 +50,7 @@ public class RussianWordSeviceImpl implements RussianWordSevice {
                 russianWordList.addAll(russianWordDAO.getRussianWordList(russianWord));
             }
 
+            LOGGER.info("russianWordList = " + JSON.toJSONString(russianWordList));
             return russianWordList;
         } catch (RuntimeException e) {
             LOGGER.error("Get russian word list failed, error is ", e);
