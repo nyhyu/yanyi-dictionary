@@ -52,12 +52,16 @@ public class CSSUtil {
         CSSRuleList rules = sheet.getCssRules();
         for (int i = 0; i < rules.getLength(); i++) {
             CSSRule rule = rules.item(i);
-            Pattern pattern = Pattern.compile("\\."+className + ".*([^\\{]\\{.*[^\\}]\\})");
+            Pattern pattern = Pattern.compile("\\."+className);
             Matcher matcher = pattern.matcher(rule.getCssText());
             while(matcher.find()){
                 stringBuilder.append(matcher.group(1));
             }
         }
+
+        stringBuilder.delete(stringBuilder.indexOf("{"), stringBuilder.indexOf("{") + 1);
+        stringBuilder.delete(stringBuilder.indexOf("}"), stringBuilder.indexOf("}") + 1);
+
         return stringBuilder.toString();
     }
 }
