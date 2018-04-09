@@ -13,8 +13,8 @@ public class Application implements EmbeddedServletContainerCustomizer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
-    @Value("${springboot.server.port}")
-    private Integer port;
+ //   @Value("${springboot.server.port}")
+    private Integer port = 8082;
 
 
     public static void main(String [] args) {
