@@ -60,6 +60,6 @@ public class CSSUtil {
         stringBuilder.delete(stringBuilder.indexOf("{"), stringBuilder.indexOf("{") + 1);
         stringBuilder.delete(stringBuilder.indexOf("}"), stringBuilder.indexOf("}") + 1);
 
-        return stringBuilder.toString();
+        return stringBuilder.toString().trim();
     }
 }
