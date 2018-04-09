@@ -9,12 +9,12 @@ import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletCont
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 
 @SpringBootApplication
-public class Application implements EmbeddedServletContainerCustomizer {
+public class Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
  //   @Value("${springboot.server.port}")
-    private Integer port = 8082;
+    private Integer port = 80;
 
 
     public static void main(String [] args) {
@@ -29,13 +29,6 @@ public class Application implements EmbeddedServletContainerCustomizer {
         } catch (Exception e) {
             LOGGER.error("Startup spring application failed", e);
             System.exit(1);
-        }
-    }
-
-    @Override
-    public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-        if (port != null) {
-            configurableEmbeddedServletContainer.setPort(port);
         }
     }
 }
