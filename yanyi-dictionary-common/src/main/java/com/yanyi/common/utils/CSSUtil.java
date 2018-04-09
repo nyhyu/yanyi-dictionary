@@ -1,8 +1,6 @@
 package com.yanyi.common.utils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.steadystate.css.parser.CSSOMParser;
@@ -52,7 +50,7 @@ public class CSSUtil {
         CSSRuleList rules = sheet.getCssRules();
         for (int i = 0; i < rules.getLength(); i++) {
             CSSRule rule = rules.item(i);
-            Pattern pattern = Pattern.compile("\\."+className);
+            Pattern pattern = Pattern.compile("\\."+className + "([^\\{]\\{.*[^\\}]\\})");
             Matcher matcher = pattern.matcher(rule.getCssText());
             while(matcher.find()){
                 stringBuilder.append(matcher.group(1));
