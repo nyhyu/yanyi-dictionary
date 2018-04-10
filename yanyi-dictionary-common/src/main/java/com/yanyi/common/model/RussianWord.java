@@ -1,5 +1,7 @@
 package com.yanyi.common.model;
 
+import java.util.Date;
+
 public class RussianWord {
 
     private int id;
@@ -9,6 +11,10 @@ public class RussianWord {
     private String changeType;
 
     private String flag;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     public int getId() {
         return id;
@@ -47,5 +53,21 @@ public class RussianWord {
 
     public RussianWord(String russianPrototype) {
         this.russianPrototype = russianPrototype;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
