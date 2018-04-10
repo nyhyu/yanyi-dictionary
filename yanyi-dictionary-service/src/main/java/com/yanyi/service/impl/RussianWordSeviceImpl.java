@@ -36,7 +36,7 @@ public class RussianWordSeviceImpl implements RussianWordSevice {
                     break;
                 }
             }
-            LOGGER.info("hasAccent" + hasAccent + ", *** russianWord" + JSON.toJSONString(russianWord));
+
             if(!hasAccent) {
                 russianWordList.addAll(russianWordDAO.getRussianWordList(russianWord));
                 for (int i=0; i < Constants.NO_ACCENTS.length; i++) {
