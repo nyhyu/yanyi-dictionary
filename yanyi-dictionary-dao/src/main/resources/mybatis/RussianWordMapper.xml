@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanyi.dao.RussianWordDAO">
+
+    <resultMap id="RussianWordMap" type="com.yanyi.common.model.RussianWord">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="russian_prototype" property="russianPrototype" jdbcType="VARCHAR"/>
+        <result column="change_type" property="changeType" jdbcType="VARCHAR"/>
+        <result column="flag" property="flag" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--columns config-->
+    <sql id="allColumn">
+        id, russian_prototype, change_type, flag, create_time, update_time
+    </sql>
+    <!-- query conditions -->
+    <sql id="sqlCondition">
+        <if test="null != id and id != ''">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="null != russianPrototype and russianPrototype != ''">
+            and russian_prototype = #{russianPrototype,jdbcType=VARCHAR}
+        </if>
+        <if test="null != changeType and changeType != ''">
+            and change_type = #{configName,jdbcType=VARCHAR}
+        </if>
+        <if test="null != flag and flag != ''">
+            and flag = #{flag,jdbcType=VARCHAR}
+        </if>
+        <if test="null != createTime and createTime != ''">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="null != updateTime and updateTime != ''">
+            and update_time = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+    </sql>
+
+    <!--  select sql-->
+    <select id="getRussianWordList" parameterType="com.yanyi.common.model.RussianWord"
+            resultMap="RussianWordMap">
+        SELECT
+        <include refid="allColumn"/>
+        FROM russian_words
+        WHERE 1=1
+        <if test="null != russianPrototype and russianPrototype != ''">
+            and russian_prototype like concat('%',#{russianPrototype,jdbcType=VARCHAR},'%')
+        </if>
+    </select>
+
+</mapper>

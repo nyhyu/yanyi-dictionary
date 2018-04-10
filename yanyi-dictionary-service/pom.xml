@@ -9,7 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>com.yanyi.dictionary.service</artifactId>
+    <artifactId>yanyi-dictionary-service</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.yanyi.dictionary</groupId>
+            <artifactId>yanyi-dictionary-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+        <groupId>com.yanyi.dictionary</groupId>
+        <artifactId>yanyi-dictionary-rpc</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+        <dependency>
+            <groupId>com.yanyi.dictionary</groupId>
+            <artifactId>yanyi-dictionary-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
