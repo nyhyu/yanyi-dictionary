@@ -30,7 +30,7 @@ function main()
 {
     make_directories
     unarchive_tarball
-    mv $PROGRAM_DIR/conf/spring/application.xml.prod $PROGRAM_DIR/conf/spring/application.xml
+ #   mv $PROGRAM_DIR/conf/spring/application.xml.prod $PROGRAM_DIR/conf/spring/application.xml
     show_messages
 }
 

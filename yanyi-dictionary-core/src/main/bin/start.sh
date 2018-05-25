@@ -15,7 +15,7 @@ readonly JAVA_OPTS="-server -XX:+PrintGCDetails -XX:+PrintGCDateStamps \
         -XX:+HeapDumpOnOutOfMemoryError \
         -XX:ErrorFile=${ERROR_LOG} \
         -XX:HeapDumpPath=${BASE_LOG_DIR}/yanyi_dictionary_dump.hprof \
-        -Xms8G -Xmx8G -Xmn8G -Xss256k \
+        -Xms2G -Xmx2G -Xmn2G -Xss256k \
         -XX:MaxDirectMemorySize=1536M -XX:+ExplicitGCInvokesConcurrent \
         -XX:SurvivorRatio=7 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC \
         -XX:CMSMaxAbortablePrecleanTime=1500 -XX:+CMSParallelRemarkEnabled \
