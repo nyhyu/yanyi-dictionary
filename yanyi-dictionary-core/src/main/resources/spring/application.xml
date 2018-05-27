@@ -23,6 +23,7 @@
         <property name="locations">
             <list>
                 <value>classpath:important.properties</value>
+                <value>classpath:application.properties</value>
                 <value>classpath:log4j.properties</value>
             </list>
         </property>

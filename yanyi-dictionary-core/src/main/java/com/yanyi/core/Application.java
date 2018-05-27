@@ -65,9 +65,11 @@ public class Application {
     private Connector initiateHttpConnector() {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
-        connector.setPort(8080); // http端口
+        // http端口
+        connector.setPort(8080);
         connector.setSecure(false);
-        connector.setRedirectPort(8081); // application.properties中配置的https端口
+        // application.properties中配置的https端口
+        connector.setRedirectPort(8443);
         return connector;
     }
 }
