@@ -36,40 +36,40 @@ public class Application {
      * 配置一个TomcatEmbeddedServletContainerFactory bean
      * @return
      */
-    @Bean
-    public EmbeddedServletContainerFactory servletContainer() {
+    //@Bean
+    //public EmbeddedServletContainerFactory servletContainer() {
 
-        TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
+    //    TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
 
-            @Override
-            protected void postProcessContext(Context context) {
+    //        @Override
+    //        protected void postProcessContext(Context context) {
 
-                SecurityConstraint securityConstraint = new SecurityConstraint();
-                securityConstraint.setUserConstraint("CONFIDENTIAL");
-                SecurityCollection collection = new SecurityCollection();
-                collection.addPattern("/*");
-                securityConstraint.addCollection(collection);
-                context.addConstraint(securityConstraint);
-            }
-        };
-        tomcat.addAdditionalTomcatConnectors(initiateHttpConnector());
-        return tomcat;
-    }
+    //            SecurityConstraint securityConstraint = new SecurityConstraint();
+    //            securityConstraint.setUserConstraint("CONFIDENTIAL");
+    //            SecurityCollection collection = new SecurityCollection();
+    //            collection.addPattern("/*");
+    //            securityConstraint.addCollection(collection);
+    //            context.addConstraint(securityConstraint);
+    //        }
+    //    };
+    //    tomcat.addAdditionalTomcatConnectors(initiateHttpConnector());
+    //    return tomcat;
+    //}
 
-    /**
-     * 让我们的应用支持HTTP是个好想法，但是需要重定向到HTTPS，
-     * 但是不能同时在application.properties中同时配置两个connector，
-     * 所以要以编程的方式配置HTTP connector，然后重定向到HTTPS connector
-     * @return Connector
-     */
-    private Connector initiateHttpConnector() {
-        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
-        connector.setScheme("http");
-        // http端口
-        connector.setPort(8080);
-        connector.setSecure(false);
-        // application.properties中配置的https端口
-        connector.setRedirectPort(8443);
-        return connector;
-    }
+    ///**
+    // * 让我们的应用支持HTTP是个好想法，但是需要重定向到HTTPS，
+    // * 但是不能同时在application.properties中同时配置两个connector，
+    // * 所以要以编程的方式配置HTTP connector，然后重定向到HTTPS connector
+    // * @return Connector
+    // */
+    //private Connector initiateHttpConnector() {
+    //    Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+    //    connector.setScheme("http");
+    //    // http端口
+    //    connector.setPort(8080);
+    //    connector.setSecure(false);
+    //    // application.properties中配置的https端口
+    //    connector.setRedirectPort(8443);
+    //    return connector;
+    //}
 }

@@ -4,7 +4,7 @@ public class Constants {
 
     public final static String RPC_URL = "http://111.200.194.183:8080/dict/%s.html?l=zh_CN&dl=ru,zh_CN&o=query&ip=%s";
 
-    public final static String LOCAL_IP = "221.5.105.89";
+    public final static String LOCAL_IP = "39.105.25.83";
 
     public final static String[] NO_ACCENTS = { "а", "о", "у", "и", "е", "э", "ы", "я", "ю" };
 
